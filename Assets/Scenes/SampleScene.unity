@@ -1041,6 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
+  _jerkSpeed: 2
 --- !u!143 &1832219914
 CharacterController:
   m_ObjectHideFlags: 0

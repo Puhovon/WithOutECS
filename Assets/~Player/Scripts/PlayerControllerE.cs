@@ -31,7 +31,6 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     private void Move(Vector2 directionMove)
     {
         Vector3 direction = new Vector3(directionMove.x, 0, directionMove.y);
-        print(_direction);
         transform.position += direction * _moveSpeed * Time.deltaTime;
     }
 
@@ -48,7 +47,6 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        
         StartCoroutine(Jerk());
     }
 
