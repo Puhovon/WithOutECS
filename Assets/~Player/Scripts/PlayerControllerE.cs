@@ -9,11 +9,13 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     [SerializeField]private int _jerkSpeed;
     private Vector2 _direction;
     private PlayerActions _playerActions;
+    private CharacterController _characterController;
     private void Start()
     {
         _playerActions = new PlayerActions();
         _playerActions.Main.SetCallbacks(this);
         _playerActions.Main.Enable();
+        _characterController = GetComponent<CharacterController>();
     }
 
     private void OnDisable()
@@ -23,21 +25,18 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
 
     private void Update()
     {
-        // _direction = _playerActions.Main.Move.ReadValue<Vector2>(); 
         Move(_direction);
-        
     }
     
     private void Move(Vector2 directionMove)
     {
         Vector3 direction = new Vector3(directionMove.x, 0, directionMove.y);
-        transform.position += direction * _moveSpeed * Time.deltaTime;
+        _characterController.Move(direction * _moveSpeed * Time.deltaTime);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         _direction = context.ReadValue<Vector2>();
-        print("111111111 " + context.ReadValue<Vector2>());
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -54,12 +53,7 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     {
         int elapsedTime = 20;
         _direction = new Vector2(_direction.x * _jerkSpeed, _direction.y * _jerkSpeed);
-        int i = 0;
-        while (i < elapsedTime)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-
+        yield return new WaitForSeconds(0.5f);
         _direction = new Vector2(_direction.x / _jerkSpeed, _direction.y / _jerkSpeed);
     }
     public void OnLook(InputAction.CallbackContext context)
