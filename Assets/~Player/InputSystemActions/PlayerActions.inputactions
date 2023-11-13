@@ -57,6 +57,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "cc4e4823-cc9d-4463-bc35-1c4851e8be4d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystic",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "WASD",
                     "id": "c0e16aad-a3c0-4e49-83ce-d3e590c4418d",
                     "path": "2DVector",
@@ -107,6 +118,61 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardSchema",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "0a3a9654-f578-4af3-a59c-0c6b20a31b96",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "f4fb0607-81a8-4046-ae52-f4119e43ed83",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystic",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "314c7537-b5ee-41b3-aea5-cde7fe82b486",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystic",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "9009a409-7a82-41fc-9b2d-ba20404eff7b",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystic",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f1b8326e-8113-4f85-8831-35bb7f82435e",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystic",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true

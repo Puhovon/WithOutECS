@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
-  _jerkSpeed: 5
+  _jerkSpeed: 10
   _rotateSpeed: 4
 --- !u!143 &1832219914
 CharacterController:
