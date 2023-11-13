@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,8 +43,6 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     {
         if (!_hasJerk)
         {
-            print("Move");
-
             _direction = context.ReadValue<Vector2>();
         }
     }
@@ -73,7 +70,6 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
 
     private IEnumerator Jerk()
     {
-        print("Jerk");
         _hasJerk = true;
         _currentSpeed = _jerkSpeed;
         yield return new WaitForSeconds(0.2f);
