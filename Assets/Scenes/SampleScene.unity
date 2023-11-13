@@ -445,7 +445,6 @@ GameObject:
   - component: {fileID: 1107470808}
   - component: {fileID: 1107470807}
   - component: {fileID: 1107470806}
-  - component: {fileID: 1107470805}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -453,36 +452,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1107470805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1107470804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: 
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!64 &1107470806
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -883,59 +852,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1832219913}
-        m_TargetAssemblyTypeName: PlayerControllerE, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: d18fec3d-eee3-4b6c-9778-e468979ecc59
     m_ActionName: Main/New action1
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1832219913}
-        m_TargetAssemblyTypeName: PlayerControllerE, Assembly-CSharp
-        m_MethodName: OnAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 6ea9c346-8246-4246-b958-37777d869a5d
     m_ActionName: Main/Attack
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1832219913}
-        m_TargetAssemblyTypeName: PlayerControllerE, Assembly-CSharp
-        m_MethodName: OnRun
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 9a5535d0-8411-4556-9732-68519bc4f1af
     m_ActionName: Main/Run
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fafcd5f6-fd02-438e-94cd-f9aa127061e8
-    m_ActionName: Main/Look
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Joystic
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: KeyboardSchema
   m_DefaultActionMap: Main
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -1041,7 +970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
-  _jerkSpeed: 2
+  _jerkSpeed: 5
+  _rotateSpeed: 4
 --- !u!143 &1832219914
 CharacterController:
   m_ObjectHideFlags: 0

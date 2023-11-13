@@ -10,6 +10,9 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     private Vector2 _direction;
     private PlayerActions _playerActions;
     private CharacterController _characterController;
+    private bool _hasJerk = false;
+    [SerializeField] private float _rotateSpeed;
+    
     private void Start()
     {
         _playerActions = new PlayerActions();
@@ -27,18 +30,34 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     {
         Move(_direction);
     }
-    
+
     private void Move(Vector2 directionMove)
     {
         Vector3 direction = new Vector3(directionMove.x, 0, directionMove.y);
         _characterController.Move(direction * _moveSpeed * Time.deltaTime);
+        RotateCharacter(_direction);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _direction = context.ReadValue<Vector2>();
+        if (!_hasJerk)
+        {
+            print("Move");
+
+            _direction = context.ReadValue<Vector2>();
+        }
     }
 
+    private void RotateCharacter(Vector2 moveDirection)
+    {
+        Vector3 direction = new Vector3(moveDirection.x, 0, moveDirection.y);
+        if (Vector3.Angle(transform.forward, direction) > 0)
+        {
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, direction
+                , _rotateSpeed, 0);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+        }
+    }
     public void OnAttack(InputAction.CallbackContext context)
     {
         print("Attack");
@@ -46,17 +65,18 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        StartCoroutine(Jerk());
+        if(!_hasJerk)
+            StartCoroutine(Jerk());
     }
 
     private IEnumerator Jerk()
     {
-        int elapsedTime = 20;
-        _direction = new Vector2(_direction.x * _jerkSpeed, _direction.y * _jerkSpeed);
-        yield return new WaitForSeconds(0.5f);
-        _direction = new Vector2(_direction.x / _jerkSpeed, _direction.y / _jerkSpeed);
-    }
-    public void OnLook(InputAction.CallbackContext context)
-    {
+        print("Jerk");
+        _hasJerk = true;
+        _direction = new Vector2(transform.forward.x * _jerkSpeed, transform.forward.z * _jerkSpeed);
+        yield return new WaitForSeconds(0.2f);
+        _direction = new Vector2((int)(transform.forward.x / _jerkSpeed), (int)transform.forward.z / _jerkSpeed);
+
+        _hasJerk = false;
     }
 }
