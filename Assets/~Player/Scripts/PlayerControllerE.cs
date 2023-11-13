@@ -7,6 +7,7 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField]private int _jerkSpeed;
+    private float _currentSpeed;
     private Vector2 _direction;
     private PlayerActions _playerActions;
     private CharacterController _characterController;
@@ -19,6 +20,7 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
         _playerActions.Main.SetCallbacks(this);
         _playerActions.Main.Enable();
         _characterController = GetComponent<CharacterController>();
+        _currentSpeed = _moveSpeed;
     }
 
     private void OnDisable()
@@ -34,7 +36,7 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     private void Move(Vector2 directionMove)
     {
         Vector3 direction = new Vector3(directionMove.x, 0, directionMove.y);
-        _characterController.Move(direction * _moveSpeed * Time.deltaTime);
+        _characterController.Move(direction * _currentSpeed * Time.deltaTime);
         RotateCharacter(_direction);
     }
 
@@ -73,10 +75,9 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     {
         print("Jerk");
         _hasJerk = true;
-        _direction = new Vector2(transform.forward.x * _jerkSpeed, transform.forward.z * _jerkSpeed);
+        _currentSpeed = _jerkSpeed;
         yield return new WaitForSeconds(0.2f);
-        _direction = new Vector2((int)(transform.forward.x / _jerkSpeed), (int)transform.forward.z / _jerkSpeed);
-
+        _currentSpeed = _moveSpeed;
         _hasJerk = false;
     }
 }
