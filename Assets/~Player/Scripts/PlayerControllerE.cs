@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
@@ -12,6 +13,8 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     private CharacterController _characterController;
     private bool _hasJerk = false;
     [SerializeField] private float _rotateSpeed;
+
+    public UnityEvent attack = new UnityEvent(); 
     
     private void Start()
     {
@@ -59,7 +62,7 @@ public class PlayerControllerE : MonoBehaviour, PlayerActions.IMainActions
     }
     public void OnAttack(InputAction.CallbackContext context)
     {
-        print("Attack");
+        attack?.Invoke();
     }
 
     public void OnRun(InputAction.CallbackContext context)
