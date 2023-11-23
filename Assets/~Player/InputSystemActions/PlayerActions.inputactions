@@ -47,6 +47,17 @@
                 },
                 {
                     "name": "",
+                    "id": "52b71151-68e3-43cc-9359-c1aafaa1b623",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6e6e1927-9fad-4e80-9895-2e3df49136d1",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
