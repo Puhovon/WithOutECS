@@ -1254,8 +1254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85c19f528d9f8449a47048744f35e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 10
   _currentHealth: 0
+  _shoot: {fileID: 1924899802}
 --- !u!114 &1832219916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,6 +1315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7097827764311162774, guid: 67a465ba3145c204dbca04d2a74fdd88, type: 3}
   bulletSpeed: 10
+  _playerStats:
+    shootCount: 0
 --- !u!1 &1963807475
 GameObject:
   m_ObjectHideFlags: 0
