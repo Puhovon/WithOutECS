@@ -7,7 +7,6 @@ public class Trap : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        print($"{other.transform.name}");
         if (other.TryGetComponent(out IDamagable damagable))
         {
             damagable.ApplyDamage(damage);

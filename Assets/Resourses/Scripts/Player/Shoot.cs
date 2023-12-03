@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Shoot : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private int bulletSpeed;
     private PlayerControllerE _playerController;
-    public PlayerStats _playerStats;
+    public PlayerStats playerStats;
     
     private void Start()
     {
@@ -16,9 +17,10 @@ public class Shoot : MonoBehaviour
         _playerController.attack.AddListener(OnShoot);
         var jsonString = PlayerPrefs.GetString("Stats");
         if (!jsonString.Equals(String.Empty, StringComparison.Ordinal))
-            _playerStats = JsonUtility.FromJson<PlayerStats>(jsonString);
+            playerStats = JsonUtility.FromJson<PlayerStats>(jsonString);
         else
-            _playerStats = new PlayerStats();
+            playerStats = new PlayerStats();
+        print(playerStats);
         print(jsonString);
     }
 
@@ -26,6 +28,6 @@ public class Shoot : MonoBehaviour
     {
         GameObject instBullet = Instantiate(bullet, transform.position, transform.parent.rotation);
         instBullet.transform.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
-        _playerStats.shootCount += 1;
+        playerStats.shootCount += 1;
     }
 }

@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.elringus.unitygoogledrive": {
-      "version": "file:../Assets/UnityGoogleDrive",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.cinemachine": {
       "version": "2.9.7",
       "depth": 0,

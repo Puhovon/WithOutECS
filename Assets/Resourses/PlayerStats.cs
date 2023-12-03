@@ -5,4 +5,5 @@ using UnityEngine;
 public class PlayerStats
 {
     public int shootCount;
+    public int health;
 }
